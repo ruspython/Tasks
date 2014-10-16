@@ -1,7 +1,8 @@
 var app = angular.module('TodoApp', ["ngCookies"]).config(function ($interpolateProvider) {
     $interpolateProvider.startSymbol('//').endSymbol('//');
 }).run(function ($http, $cookies) {
-    $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
+    $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken || document.getElementsByName('csrfmiddlewaretoken')[0];
+    console.log($http.defaults.headers.post['X-CSRFToken'])
 });
 app.controller('TodoController', function ($scope, todoService) {
     $scope.todos = [];
