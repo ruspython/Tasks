@@ -1,0 +1,13 @@
+.done-true {
+  text-decoration: line-through;
+  color: grey;
+}
+.todo {
+    border: none;
+}
+.container {
+    width: 450px;
+}
+form input{
+    width: 100%;
+}

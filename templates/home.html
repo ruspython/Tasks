@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container">
+        <h3 class="list-group-item title">What to do?</h3>
+
+        <div class="list-group-item" ng-repeat="todo in todos">
+
+            <input type="checkbox" ng-model="todo.fields.done" ng-change="editTodo(todo)">
+            <input type="text" ng-model="todo.fields.text" class="todo done-//todo.fields.done//"
+                   ng-change="editTodo(todo)">
+            <a ng-click="removeTodo(todo)" class="glyphicon glyphicon-remove pull-right" href=""></a>
+        </div>
+
+        <form ng-submit="addTodo()" class="list-group-item">
+            <input type="text" ng-model="todoText" size="20"/>
+            <input type="submit" value="Add Todo"/>
+        </form>
+    </div>
+{% endblock %}
