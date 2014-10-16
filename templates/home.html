@@ -6,9 +6,9 @@
 
         <div class="list-group-item" ng-repeat="todo in todos">
 
-            <input type="checkbox" ng-model="todo.fields.done" ng-change="editTodo(todo)">
+            <input type="checkbox" ng-change="editTodo(todo)" ng-model="todo.fields.done">
             <input type="text" ng-model="todo.fields.text" class="todo done-//todo.fields.done//"
-                   ng-change="editTodo(todo)">
+                   ng-blur="editTodo(todo)" size="50">
             <a ng-click="removeTodo(todo)" class="glyphicon glyphicon-remove pull-right" href=""></a>
         </div>
 

@@ -10,6 +10,8 @@ def home(request):
 
 
 def get(request):
+    import time
+    time.sleep(0.5)
     todos = Todo.objects.all()
     data = serializers.serialize('json', todos)
     return HttpResponse(data, content_type="application/json")
@@ -29,7 +31,7 @@ def remove(request):
 
 
 def edit(request):
-    todo_obj = id = json.loads(request.body.decode('utf-8'))
+    todo_obj = json.loads(request.body.decode('utf-8'))
     print(todo_obj)
     todo_id = todo_obj['id']['pk']
     todo_text = todo_obj['id']['fields']['text']
